@@ -1,37 +1,23 @@
-The library to integrate your services with [Skelly](https://skelly.gg).
+# skelly-app
+
+This library allows your to easily integrate your services with [Skelly](https://skelly.gg).
 
 # Installation
 
-Using npm:
+Installing package using npm:
 
 ```
 npm install skelly-app
 ```
 
-In Node.js:
+Installing repository using git and trying demo react app:
 
 ```
-Load...
+git clone https://github.com/Skelly-gg/skelly-app.git
+cd skelly-app
+npm install
+npm run demo
+start .\dist\index.html
 ```
 
-Test demo online: https://skelly.gg/demo
-
-# skelly-app
-
-npm install skelly-app
-
-Public library to integrate Skelly into your services
-
-npm run build
-
-# GraphGL
-
-Library provides access to Skelly's GraphQL API.
-
-# React components
-
-Includes reusable react components.
-
-# REST API
-
-# Webhooks
+You can also test the [demo online](https://skelly.gg/demo).
