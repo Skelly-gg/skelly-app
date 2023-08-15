@@ -44,7 +44,7 @@ console.log(profiles)
 
 ## React
 
-You can also easily integrate profiles into your Raect application using our out-of-the-box component:
+You can also easily integrate profiles into your React application using our out-of-the-box component:
 
 ```
 import {Profile} from "skelly-app";
