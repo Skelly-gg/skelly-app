@@ -9,11 +9,13 @@ const apiKey = "da2-avv3ynvtwffbxp4gbql572izqm";
 
 export interface IProfile extends IProfileShort {
   customized_id: string | null;
-  accounts: {
-    account: string;
-    game: string;
-    verified: boolean | null;
-  };
+  accounts:
+    | {
+        account: string;
+        game: string;
+        verified: boolean | null;
+      }[]
+    | null;
 }
 
 export interface IProfileShort {
