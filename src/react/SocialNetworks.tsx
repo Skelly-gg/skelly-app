@@ -1,7 +1,7 @@
 import React from "react";
 import { useTheme, Stack, Box } from "@mui/material";
 import { getIconURL, socialNetworksById } from "../utils/socialNetworksRef";
-import { IProfile } from "../graphQL/skellyGraphQL";
+import { IProfileShort } from "../graphQL/skellyGraphQL";
 
 /**
  * React component
@@ -9,7 +9,7 @@ import { IProfile } from "../graphQL/skellyGraphQL";
  * @param param0
  * @returns
  */
-export function SocialNetworks({ profile }: { profile: IProfile }) {
+export function SocialNetworks({ profile }: { profile: IProfileShort }) {
   const theme = useTheme();
   const mode = theme.palette.mode;
 
