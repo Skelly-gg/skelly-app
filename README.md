@@ -1,6 +1,6 @@
 # skelly-app
 
-This library allows your to easily integrate your services with [Skelly](https://skelly.gg).
+Llibrary allowing your to easily integrate your services with [Skelly](https://skelly.gg).
 
 # Installation
 
@@ -22,10 +22,9 @@ npm install
 npm run demo
 
 start .\dist\index.html
-
 ```
 
-You can also play with the [demo](https://skelly.gg/demo) online.
+You can also play with the online [demo](https://skelly.gg/demo).
 
 # Integration
 
@@ -45,7 +44,7 @@ console.log(profiles)
 
 ## React
 
-You can easily integrate Profiles into your Raect application using our out-of-the-box component:
+You can also easily integrate profiles into your Raect application using our out-of-the-box component:
 
 ```
 import {Profile} from "skelly-app";
@@ -65,7 +64,7 @@ export function App() {
 
 ## Utilities
 
-There are also convenient utility functions to process Skelly profiles:
+There are convenient utility functions available to process Skelly profiles:
 
 ```
 import { getProfile, getAvatar, getName, getLongName } from "skelly-app";
