@@ -4,29 +4,34 @@ This library allows your to easily integrate your services with [Skelly](https:/
 
 # Installation
 
-Installing package using npm:
+Installing the package using npm:
 
 ```
 npm install skelly-app
 ```
 
-Installing repository using git and trying demo react app:
+Installing the repository using git and launching the demo react app:
 
 ```
 git clone https://github.com/Skelly-gg/skelly-app.git
+
 cd skelly-app
+
 npm install
+
 npm run demo
+
 start .\dist\index.html
+
 ```
 
-You can also test the [demo online](https://skelly.gg/demo).
+You can also play with the [demo](https://skelly.gg/demo) online.
 
 # Integration
 
 ## GraphQL
 
-Fetching profiles using GraphQL:
+Here is how you can fetch profiles using GraphQL:
 
 ```
 import { getProfile, getProfiles } from "skelly-app";
@@ -40,13 +45,13 @@ console.log(profiles)
 
 ## React
 
-Integrating the Profile component into your React application:
+You can easily integrate Profiles into your Raect application using our out-of-the-box component:
 
 ```
 import {Profile} from "skelly-app";
 
 export function App() {
-  const { fetchProfile, profile, accountId, loadingProfile, errorProfile } =
+  const { fetchProfile, accountId, loadingProfile, profile, errorProfile } =
     useFetchProfile();
 
   React.useEffect(() => {
@@ -60,7 +65,7 @@ export function App() {
 
 ## Utilities
 
-Utility functions to manage Skelly profiles:
+There are also convenient utility functions to process Skelly profiles:
 
 ```
 import { getProfile, getAvatar, getName, getLongName } from "skelly-app";
