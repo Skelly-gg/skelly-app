@@ -14,6 +14,14 @@ export interface IProfile extends IProfileShort {
         account: string;
         game: string;
         verified: boolean | null;
+        // Dota 2
+        dota2_mmr: number | null;
+        dota2_confidence: number | null;
+        dota2_rank: number | null;
+        dota2_timestamp: number; // # time when Dota 2 data was last updated
+        // Valorant
+        valorant_rank: number | null;
+        valorant_timestamp: number | null;
       }[]
     | null;
 }
@@ -83,6 +91,12 @@ const getProfileQuery = `
           account
           game
           verified
+          dota2_mmr
+          dota2_confidence
+          dota2_rank
+          dota2_timestamp
+          valorant_rank
+          valorant_timestamp
         }
         avatar
         background
