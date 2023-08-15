@@ -1,7 +1,7 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
 import { Paper, Stack } from "@mui/material";
-import { IProfile } from "../graphQL/skellyGraphQL";
+import { IProfile, IProfileShort } from "../graphQL/skellyGraphQL";
 import { getAvatar, getLongName, getName } from "../utils/profile";
 import { SocialNetworks } from "./SocialNetworks";
 
@@ -9,7 +9,7 @@ export function Profile({
   profile,
   onClick,
 }: {
-  profile: IProfile;
+  profile: IProfileShort;
   onClick?: () => void;
 }) {
   const [mouseIn, setMouseIn] = React.useState<boolean>(false);
