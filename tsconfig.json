@@ -1,17 +1,22 @@
 {
     "compilerOptions": {
-      "target": "es5",
-      "module": "es2015",
-      "outDir": "./dist",
+      "target": "ESNext",
+      "module": "commonjs",
+      "outDir": "./lib",
       "noImplicitAny": true,
       "strict": true,
       "jsx": "react",
       "allowJs": true,
       "moduleResolution": "node",
-      "esModuleInterop": true
+      "esModuleInterop": true,
+      "declaration": true
     },
     "include": [
-      "src/demo/index.tsx",
+      "src/index.ts",
+      //"src/**/*",
+      //"src/GraphQL/**/*",
+      //"src/react/**/*",
+      //"src/utils/**/*",
       //"**/*"
     ],
     "exclude": [

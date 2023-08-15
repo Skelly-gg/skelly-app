@@ -1,11 +1,11 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
 import { Paper, Stack } from "@mui/material";
-import SocialNetworks from "./SocialNetworks";
 import { IProfile } from "../graphQL/skellyGraphQL";
 import { getAvatar, getLongName, getName } from "../utils/profile";
+import { SocialNetworks } from "./SocialNetworks";
 
-export default function Profile({
+export function Profile({
   profile,
   onClick,
 }: {

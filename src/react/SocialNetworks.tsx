@@ -3,7 +3,13 @@ import { useTheme, Stack, Box } from "@mui/material";
 import { getIconURL, socialNetworksById } from "../utils/socialNetworksRef";
 import { IProfile } from "../graphQL/skellyGraphQL";
 
-export default function SocialNetworks({ profile }: { profile: IProfile }) {
+/**
+ * React component
+ *
+ * @param param0
+ * @returns
+ */
+export function SocialNetworks({ profile }: { profile: IProfile }) {
   const theme = useTheme();
   const mode = theme.palette.mode;
 

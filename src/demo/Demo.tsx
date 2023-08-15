@@ -8,16 +8,16 @@ import {
   Tooltip,
   Paper,
 } from "@mui/material";
-import { useProfiles } from "../react/useProfiles";
-import Profile from "../react/Profile";
+import { Profile } from "../react/Profile";
+import { useFetchProfile } from "../react/useFetchProfile";
 
-export default function App() {
+export function Demo() {
   const [disabled, setDisabled] = React.useState<boolean>(true);
 
   const textFieldRef = React.useRef<HTMLTextAreaElement>(null);
 
-  const { fetchProfiles, profiles, loadingProfiles, errorProfiles } =
-    useProfiles();
+  const { fetchProfile, profile, accountId, loadingProfile, errorProfile } =
+    useFetchProfile();
 
   return (
     <Stack gap="3rem" style={{ padding: "1rem" }}>
@@ -27,29 +27,37 @@ export default function App() {
         <Tooltip
           title={
             <Typography variant="body1">
-              Sample friend ids are 12746, 12750 and 12754.
+              Sample accounts ids are N0tail, S1mple, or 12754.
             </Typography>
           }
           arrow
           followCursor
         >
           <TextField
-            placeholder="Skelly friend id"
+            placeholder="Skelly username or friend id"
             inputRef={textFieldRef}
             onChange={(e) => {
               const value = !e.target.value;
               if (value !== disabled) setDisabled(value);
+            }}
+            onKeyDown={(event) => {
+              //console.log(event);
+              if (event.key === "Enter") {
+                if (disabled || loadingProfile) return;
+                const friendId = textFieldRef.current?.value;
+                if (friendId) fetchProfile(friendId);
+              }
             }}
           />
         </Tooltip>
 
         <Button
           variant="contained"
-          disabled={disabled || loadingProfiles}
+          disabled={disabled || loadingProfile}
           onClick={() => {
-            if (disabled || loadingProfiles) return;
+            if (disabled || loadingProfile) return;
             const friendId = textFieldRef.current?.value;
-            if (friendId) fetchProfiles([friendId]);
+            if (friendId) fetchProfile(friendId);
           }}
         >
           Fetch profile
@@ -57,7 +65,7 @@ export default function App() {
       </Stack>
 
       <Stack>
-        {loadingProfiles ? (
+        {loadingProfile ? (
           <Stack
             gap="1.5rem"
             style={{
@@ -68,16 +76,20 @@ export default function App() {
             <Typography variant="h6">Fetching profile</Typography>
             <CircularProgress size="4rem" />
           </Stack>
-        ) : profiles ? (
+        ) : profile === null ? (
+          <Typography variant="h6">Profile {accountId} not found</Typography>
+        ) : profile ? (
           <>
             <Typography variant="h6">
-              Profile {profiles[0].friend_id}
+              Profile {profile.customized_id || profile.friend_id}
             </Typography>
             <Stack direction="row" gap="1rem" style={{ flexWrap: "wrap" }}>
               <Profile
-                profile={profiles[0]}
+                profile={profile}
                 onClick={() => {
-                  const url = `https://skelly.gg/g/${profiles[0].friend_id}`;
+                  const url = `https://skelly.gg/g/${
+                    profile.customized_id || profile.friend_id
+                  }`;
                   window.open(url, "_blank");
                 }}
               />
@@ -98,12 +110,12 @@ export default function App() {
                     fontSize: "0.8rem",
                   }}
                 >
-                  {JSON.stringify(profiles[0], null, 2)}
+                  {JSON.stringify(profile, null, 2)}
                 </Typography>
               </Paper>
             </Stack>
           </>
-        ) : errorProfiles ? (
+        ) : errorProfile ? (
           <div>Error</div>
         ) : null}
       </Stack>

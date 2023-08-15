@@ -1,19 +1,19 @@
 import React from "react";
-import { IProfile, getProfiles } from "../graphQL/skellyGraphQL";
+import { getProfiles, IProfileShort } from "../graphQL/skellyGraphQL";
 
 /**
  * Hook returns profiles based on a list of Skelly friend ids.
  *
  */
-export function useProfiles() {
+export function useFetchProfiles() {
   const [friendIds, setFriendIds] = React.useState<string[] | undefined>(
     undefined
   );
-  const [profiles, setProfiles] = React.useState<IProfile[] | undefined>(
+  const [profiles, setProfiles] = React.useState<IProfileShort[] | undefined>(
     undefined
   );
   const [profilesById, setProfilesById] = React.useState<
-    Record<string, IProfile> | undefined
+    Record<string, IProfileShort> | undefined
   >(undefined);
 
   const [loading, setLoading] = React.useState<boolean>(false);

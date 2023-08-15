@@ -1,11 +1,15 @@
 {
   "name": "skelly-app",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "Utilities to integrate with Skelly",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "/lib"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --watch"
+    "build": "tsc",
+    "demo": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -13,14 +17,16 @@
   },
   "keywords": [
     "Skelly",
-    "Integration"
+    "Integration",
+    "GraphQL",
+    "React"
   ],
   "author": "Skelly.gg",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Skelly-gg/skelly-app/issues"
   },
-  "homepage": "https://github.com/Skelly-gg/skelly-app#readme",
+  "homepage": "https://skelly.gg",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
