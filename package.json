@@ -11,7 +11,7 @@
     "build": "tsc",
     "demo": "webpack",
     "demoWatch": "webpack --watch",
-    "deploy": "npm version patch && npm run build && npm run publish"
+    "deploy": "npm version patch && npm run build && npm publish"
   },
   "repository": {
     "type": "git",
