@@ -27,7 +27,7 @@ export function Demo() {
         <Tooltip
           title={
             <Typography variant="body1">
-              Sample accounts ids are N0tail, S1mple, or 12754.
+              Sample accounts ids are N0tail, s1mple, or 12754.
             </Typography>
           }
           arrow
@@ -47,6 +47,9 @@ export function Demo() {
                 const friendId = textFieldRef.current?.value;
                 if (friendId) fetchProfile(friendId);
               }
+            }}
+            style={{
+              minWidth: "16rem",
             }}
           />
         </Tooltip>

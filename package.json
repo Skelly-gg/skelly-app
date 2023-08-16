@@ -1,6 +1,6 @@
 {
   "name": "skelly-app",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Utilities to integrate with Skelly",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -10,7 +10,8 @@
   "scripts": {
     "build": "tsc",
     "demo": "webpack",
-    "demoWatch": "webpack --watch"
+    "demoWatch": "webpack --watch",
+    "deploy": "npm run build && npm run publish"
   },
   "repository": {
     "type": "git",
