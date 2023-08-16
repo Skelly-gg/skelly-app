@@ -17,6 +17,7 @@ export function getAvatar(profile?: IProfileShort): string {
 }
 
 /**
+ * Function returns long version of the user's name.
  *
  * @returns "<real_name> | <list of gamer_names OR friend_id>"
  */
