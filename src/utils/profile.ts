@@ -1,5 +1,6 @@
 import {
   IProfileAvatar,
+  IProfileBackground,
   IProfileNamed,
   IProfileShort,
 } from "../graphQL/skellyGraphQL";
@@ -20,6 +21,22 @@ export function getAvatar(profile?: IProfileAvatar): string {
   return `https://avatar.skelly.gg/${friendId}/avatar/${avatar}`;
 }
 
+export const DUMMY_BACKGROUND = `https://skelly.gg/img/profile/background_dummy.svg`;
+
+export function getBackground(profile?: IProfileBackground): string {
+  const friendId = profile?.friend_id;
+  const background = profile?.background;
+
+  if (
+    friendId === undefined ||
+    friendId === null ||
+    background === undefined ||
+    background === null
+  )
+    return DUMMY_BACKGROUND;
+  return `https://avatar.skelly.gg/${friendId}/background/${background}`;
+}
+
 /**
  * Function returns long version of the user's name.
  *
@@ -30,7 +47,7 @@ export function getLongName(profile: IProfileNamed): string {
 
   const gamerName =
     Array.isArray(profile.gamer_names) && profile.gamer_names.length > 0
-      ? profile.gamer_names.join(", ")
+      ? profile.gamer_names.filter((name) => !!name).join(", ")
       : undefined;
   if (gamerName) {
     names.push(gamerName);

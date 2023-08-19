@@ -27,15 +27,15 @@ export interface IProfile extends IProfileShort {
 }
 
 export interface IProfileShort
-  extends IProfileNamed,
+  extends IProfileAvatar,
+    IProfileBackground,
+    IProfileNamed,
     IProfileAvatar,
     IProfileBase {
   visibility: string | null;
   subscription: string | null;
   birthdate_display: string | null;
   birthdate: number | null;
-
-  background: string | null;
   real_name: string | null;
   real_time: {
     account: string | null;
@@ -78,6 +78,10 @@ export interface IProfileShort
 
 export interface IProfileAvatar extends IProfileBase {
   avatar: string | null;
+}
+
+export interface IProfileBackground extends IProfileBase {
+  background: string | null;
 }
 
 export interface IProfileNamed extends IProfileBase {
