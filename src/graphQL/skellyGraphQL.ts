@@ -26,15 +26,16 @@ export interface IProfile extends IProfileShort {
     | null;
 }
 
-export interface IProfileShort {
-  friend_id: string;
+export interface IProfileShort
+  extends IProfileNamed,
+    IProfileAvatar,
+    IProfileBase {
   visibility: string | null;
   subscription: string | null;
   birthdate_display: string | null;
   birthdate: number | null;
-  avatar: string | null;
+
   background: string | null;
-  gamer_names: string[] | null;
   real_name: string | null;
   real_time: {
     account: string | null;
@@ -73,6 +74,18 @@ export interface IProfileShort {
         id: string;
       }[]
     | null;
+}
+
+export interface IProfileAvatar extends IProfileBase {
+  avatar: string | null;
+}
+
+export interface IProfileNamed extends IProfileBase {
+  gamer_names: string[] | null;
+}
+
+export interface IProfileBase {
+  friend_id: string;
 }
 
 /**

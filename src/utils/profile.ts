@@ -1,8 +1,12 @@
-import { IProfileShort } from "../graphQL/skellyGraphQL";
+import {
+  IProfileAvatar,
+  IProfileNamed,
+  IProfileShort,
+} from "../graphQL/skellyGraphQL";
 
 export const DUMMY_AVATAR = `https://skelly.gg/img/profile/avatar_dummy.svg`;
 
-export function getAvatar(profile?: IProfileShort): string {
+export function getAvatar(profile?: IProfileAvatar): string {
   const friendId = profile?.friend_id;
   const avatar = profile?.avatar;
 
@@ -21,7 +25,7 @@ export function getAvatar(profile?: IProfileShort): string {
  *
  * @returns "<real_name> | <list of gamer_names OR friend_id>"
  */
-export function getLongName(profile: IProfileShort): string {
+export function getLongName(profile: IProfileNamed): string {
   const names: string[] = [];
 
   const gamerName =
@@ -43,7 +47,7 @@ export function getLongName(profile: IProfileShort): string {
  *
  * @returns "real_name" OR "first gamer_name" OR "friend_id"
  */
-export function getName(profile?: IProfileShort): string {
+export function getName(profile?: IProfileNamed): string {
   return (
     (profile?.gamer_names?.length ? profile.gamer_names[0] : undefined) ||
     profile?.friend_id ||
