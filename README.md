@@ -1,6 +1,6 @@
 # skelly-app
 
-Llibrary allowing your to easily integrate your services with [Skelly](https://skelly.gg).
+Library allowing your to easily integrate your services with [Skelly](https://skelly.gg).
 
 # Installation
 

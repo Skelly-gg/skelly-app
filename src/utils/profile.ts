@@ -18,7 +18,10 @@ export function getAvatar(profile?: IProfileAvatar): string {
     avatar === null
   )
     return DUMMY_AVATAR;
-  return `https://avatar.skelly.gg/${friendId}/avatar/${avatar}`;
+  return `https://avatar.skelly.gg/${friendId}/avatar/${avatar}`.replaceAll(
+    " ",
+    "%20"
+  );
 }
 
 export const DUMMY_BACKGROUND = `https://skelly.gg/img/profile/background_dummy.svg`;
@@ -34,7 +37,10 @@ export function getBackground(profile?: IProfileBackground): string {
     background === null
   )
     return DUMMY_BACKGROUND;
-  return `https://avatar.skelly.gg/${friendId}/background/${background}`;
+  return `https://avatar.skelly.gg/${friendId}/background/${background}`.replaceAll(
+    " ",
+    "%20"
+  );
 }
 
 /**
