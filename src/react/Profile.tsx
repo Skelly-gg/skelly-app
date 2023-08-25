@@ -8,9 +8,11 @@ import { SocialNetworks } from "./SocialNetworks";
 export function Profile({
   profile,
   onClick,
+  style,
 }: {
   profile: IProfileShort;
   onClick?: () => void;
+  style?: any;
 }) {
   const [mouseIn, setMouseIn] = React.useState<boolean>(false);
 
@@ -29,6 +31,7 @@ export function Profile({
         overflow: "hidden",
         cursor: "pointer",
         height: "fit-content",
+        ...style,
       }}
       onClick={onClick}
     >
