@@ -2,7 +2,6 @@ import {
   IProfileAvatar,
   IProfileBackground,
   IProfileNamed,
-  IProfileShort,
 } from "../graphQL/skellyGraphQL";
 
 export const DUMMY_AVATAR = `https://skelly.gg/img/profile/avatar_dummy.svg`;

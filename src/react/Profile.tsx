@@ -46,7 +46,7 @@ export function Profile({
           style={{
             //backgroundColor: "blue",
             width: "11rem",
-            borderRadius: "1rem",
+            //borderRadius: "1rem",
             overflow: "hidden",
           }}
         >
