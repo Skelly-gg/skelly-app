@@ -45,7 +45,7 @@ export function getBackground(profile?: IProfileBackground): string {
 /**
  * Function returns long version of the user's name.
  *
- * @returns "<real_name> | <list of gamer_names OR friend_id>"
+ * @returns "<real_name> | <list of gamer_names OR username OR friend_id>"
  */
 export function getLongName(profile: IProfileNamed): string {
   const names: string[] = [];
@@ -59,7 +59,11 @@ export function getLongName(profile: IProfileNamed): string {
   }
 
   if (names.length === 0) {
-    names.push(profile.friend_id);
+    if (profile.customized_id) {
+      names.push(profile.customized_id);
+    } else {
+      names.push(profile.friend_id);
+    }
   }
 
   return names.join(" | ");
@@ -67,11 +71,13 @@ export function getLongName(profile: IProfileNamed): string {
 
 /**
  *
- * @returns "real_name" OR "first gamer_name" OR "friend_id"
+ * @returns "real_name" OR "first gamer_name" OR "username" OR "friend_id"
  */
 export function getName(profile?: IProfileNamed): string {
   return (
+    profile?.real_name ||
     (profile?.gamer_names?.length ? profile.gamer_names[0] : undefined) ||
+    profile?.customized_id ||
     profile?.friend_id ||
     "n/a"
   );

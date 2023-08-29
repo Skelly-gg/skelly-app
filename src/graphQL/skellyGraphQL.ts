@@ -8,7 +8,6 @@ const apiUrl =
 const apiKey = "da2-avv3ynvtwffbxp4gbql572izqm";
 
 export interface IProfile extends IProfileShort {
-  customized_id: string | null;
   accounts:
     | {
         account: string;
@@ -36,7 +35,6 @@ export interface IProfileShort
   subscription: string | null;
   birthdate_display: string | null;
   birthdate: number | null;
-  real_name: string | null;
   real_time: {
     account: string | null;
     game: string | null;
@@ -85,11 +83,13 @@ export interface IProfileBackground extends IProfileBase {
 }
 
 export interface IProfileNamed extends IProfileBase {
+  real_name: string | null;
   gamer_names: string[] | null;
 }
 
 export interface IProfileBase {
   friend_id: string;
+  customized_id: string | null;
 }
 
 /**
