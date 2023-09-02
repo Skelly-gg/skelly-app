@@ -50,12 +50,11 @@ export function getBackground(profile?: IProfileBackground): string {
 export function getLongName(profile: IProfileNamed): string {
   const names: string[] = [];
 
-  const gamerName =
-    Array.isArray(profile.gamer_names) && profile.gamer_names.length > 0
-      ? profile.gamer_names.filter((name) => !!name).join(", ")
-      : undefined;
-  if (gamerName) {
-    names.push(gamerName);
+  const gamerNames = Array.isArray(profile.gamer_names)
+    ? profile.gamer_names.filter((name) => !!name)
+    : [];
+  if (gamerNames.length > 0) {
+    names.push(gamerNames?.join(", "));
   }
 
   if (names.length === 0) {
