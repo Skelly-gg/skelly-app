@@ -52,6 +52,7 @@ export function SocialNetworks({ profile }: { profile: IProfileShort }) {
 
           return (
             <Box
+              key={socialNetwork.id}
               sx={{
                 filter: "grayscale(1)",
                 "&:hover": {
